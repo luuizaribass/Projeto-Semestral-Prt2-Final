@@ -68,6 +68,10 @@
         align-items: center;
     }
 
+    .container{
+        display: none;
+    }
+
     menu>ul {
         width: 100%;
         display: block;
@@ -108,6 +112,11 @@
     #itensMenu{
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    #menu-geral #logo-img {
+        width: 85px;
+        margin-left: 0px;
     }
 
     /* 
@@ -168,4 +177,8 @@
     } */
 
      /* fim menu responsivo */
+
+     .sticker{
+        width: 70%;
+     }
 }

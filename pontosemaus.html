@@ -55,7 +55,7 @@
 
     <header>
         <div id="menu-geral">
-            <a id="" href="#"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
+            <a id="" href="index.html"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
             <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
             <menu id="itensMenu">
                 <ul>
@@ -68,13 +68,14 @@
                                 class="fa-solid fa-phone"></i></a></li>
                     <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
                     </li>
+                    <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li>
                     <li id="carrinhoGeral">
                         <a id="iconespaço" class="imgmenu" href="carrinhoemaus.html">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <div id="contagem" class="contagem">0</div>
                         </a>
                     </li>
-                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
+                    
                     <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
                     <li>
                         <div class="container">
@@ -125,10 +126,10 @@
         </div>
     </section>
 
-    <div id="conteudo">
+    <!-- <div id="conteudo">
         <img src="img/frete.png" alt="" class="frete">
         <a href="jogoemaus.html"><img src="img/bannerPacman.png" alt="" class="jogoPacman"></a>
-    </div>
+    </div> -->
 
     <div class="icones">
         <a href="#cliqueCamisa"> <img src="img/camisapontos.png" alt="trocapontos"></a>
@@ -186,9 +187,10 @@
 
 
 
-    <div id="snickers">
-        <img class="snicker" src="img/stickers.png" alt="trocapontos">
-        <img class="snicker" src="img/corrastickers.png" alt="trocapontos">
+    <div id="stickers">
+        <img class="sticker" src="img/stickers.png" alt="trocapontos">
+        <img class="sticker" src="img/corrastickers.png" alt="trocapontos">
+        <img class="sticker" src="img/stickers.png" alt="trocapontos">
     </div>
 
     <div id="nenhumItemEncontrado" style="display: none;">Ops! Nenhum item foi encontrado.</div>
@@ -514,7 +516,7 @@
         const body = document.body;
         const itens = document.getElementById('itens-geral');
         const conteudo = document.querySelector('itens-geral');
-        const snickers = document.getElementById('snickers');
+        const stickers = document.getElementById('stickers');
         const icones = document.querySelector('icones');
         const caixa = document.querySelector('item-caixa');
         const caixaPontos = document.querySelector('caixas-pontos');
@@ -533,7 +535,7 @@
                 itens.classList.add('modo-noturno');
                 conteudo.classList.add('modo-noturno');
                 nenhum.classList.add('modo-noturno');
-                snickers.classList.add('modo-noturno');
+                stickers.classList.add('modo-noturno');
                 icones.classList.add('modo-noturno');
                 caixa.classList.add('modo-noturno');
                 caixaPontos.classList.add('modo-noturno');
@@ -546,7 +548,7 @@
                 itens.classList.remove('modo-noturno');
                 conteudo.classList.remove('modo-noturno');
                 nenhum.classList.remove('modo-noturno');
-                snickers.classList.remove('modo-noturno');
+                stickers.classList.remove('modo-noturno');
                 icones.classList.remove('modo-noturno');
                 caixa.classList.remove('modo-noturno');
                 caixaPontos.classList.remove('modo-noturno');
