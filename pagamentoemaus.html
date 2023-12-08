@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coletivo emaus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediascreen.css">
+    <link class="icon" rel="icon" href="img/icone.png">
+</head>
+
+<body onresize="mudouTamanho()" onload="inicializarPagina()">
+    <header>
+        <div id="menu-geral">
+            <a id="" href="index.html"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
+            <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+            <menu id="itensMenu">
+                <ul>
+                    <li><a id="espaço" href="camisetasemaus.html">camisetas</a></li>
+                    <li><a id="espaço" href="moletonsemaus.html">moletons</a></li>
+                    <li><a id="espaço" href="unissexemaus.html">unissex</a></li>
+                    <li><a id="espaço" href="acessoriosemaus.html">acessórios</a></li>
+                    <li><a id="espaço" href="#">pontos</a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="tel:(11) 3425-7299"><i
+                                class="fa-solid fa-phone"></i></a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
+                    </li>
+                    <li id="carrinhoGeral">
+                        <a id="iconespaço" class="imgmenu" href="carrinhoemaus.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="contagem" class="contagem">0</div>
+                        </a>
+                    </li>
+                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
+                    <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
+                    <li>
+                        <div class="barraPesquisar">
+                            <input checked="" class="checkbox" type="checkbox">
+                            <div class="mainbox">
+                                <div class="iconContainer">
+                                    <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"
+                                        class="search_icon">
+                                        <path
+                                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <input class="search_input" placeholder="pesquisar" type="text">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+
+    <section id="resumo-compra" class="selection">
+        <h2>Resumo da Compra</h2>
+        <div id="carrinho-resumo" class="itens-lista">
+            <!-- Aqui você pode exibir os itens do carrinho com preços, quantidades, etc. -->
+        </div>
+    </section>
+
+    <section id="dados-usuario">
+        <h2>Dados do Usuário</h2>
+        <p>Nome do Usuário: <span id="nome-usuario"></span></p>
+        <!-- Outras informações do usuário podem ser adicionadas aqui -->
+    </section>
+
+
+   <!-- Seção de Endereço de Entrega -->
+<section id="endereco">
+    <h2>Endereço de Entrega</h2>
+    <label for="rua">Rua:</label>
+    <input type="text" id="rua" name="rua" placeholder="Nome da Rua">
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" placeholder="Nome do Bairro">
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Nome da Cidade">
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" placeholder="Estado">
+
+    <label for="pais">País:</label>
+    <input type="text" id="pais" name="pais" placeholder="País">
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" placeholder="Número">
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+</section>
+
+
+    <section id="pagamento">
+        <h2>Opções de Pagamento</h2>
+    
+        <!-- Escolha entre PIX ou Cartão -->
+        <div>
+            <input type="radio" id="opcaoPix" name="opcaoPagamento" value="pix" checked>
+            <label for="opcaoPix">PIX</label>
+    
+            <input type="radio" id="opcaoCartao" name="opcaoPagamento" value="cartao">
+            <label for="opcaoCartao">Cartão de Crédito</label>
+        </div>
+    
+        <!-- Seção específica para PIX -->
+        <div id="pixSection">
+            <h3>Pagamento com PIX</h3>
+            <p>Para realizar o pagamento com PIX, copie o seguinte link:</p>
+            <div id="pix-link-container">
+                <!-- Gere um link aleatório aqui -->
+                <p id="pix-link">https://seu-banco.com/pix?id=123456789</p>
+                <button onclick="copiarLinkPix()">Copiar Link PIX</button>
+            </div>
+        </div>
+    
+        <!-- Seção específica para Cartão de Crédito -->
+        <div id="cartaoSection" style="display: none;">
+            <h3>Pagamento com Cartão de Crédito</h3>
+            <div class="InputContainer">
+                <input placeholder="0000 0000 0000 0000" id="input" class="input" name="text" type="text">
+                <div class="visaCard">
+                    <svg viewBox="0 0 48 48" height="23" width="23" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg"
+                        class="logo">
+                        <path d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z" fill="#ff9800"></path>
+                        <path d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z" fill="#d50000"></path>
+                        <path
+                            d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z"
+                            fill="#ff3d00"></path>
+                    </svg>
+                </div>
+            </div>
+            <label for="cvc">CVC:</label>
+            <input type="text" id="cvc" name="cvc" placeholder="CVC">
+    
+            <label for="validade">Data de Validade:</label>
+            <input type="text" id="validade" name="validade" placeholder="MM/AAAA">
+        </div>
+    </section>
+
+
+    <button id="finalizarPedido" onclick="verificarCampos()">Finalizar Pedido</button>
+
+    <div id="mensagemSucesso" style="display: none;">
+        <p>Seu pedido foi enviado!</p>
+    </div>
+
+    <div id="mensagemErro" style="display: none;">
+        <p>Preencha todos os campos para finalizar o seu pedido.</p>
+    </div>
+
+
+
+
+
+
+    <footer>
+        <div id="footer-cor">
+            <div id="footer-corpo">
+                <div id="footer-redes">
+                    <img src="img/logo-white.png" alt="">
+                    <p>acesse nossas redes</p>
+
+                    <div id="footer-midias">
+
+                        <a href="https://api.whatsapp.com/send?phone=5511930234169" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-whatsapp"></i></a>
+
+                        <a href="https://www.instagram.com/coletivo_emaus/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-instagram"></i></a>
+
+                        <a href="https://www.facebook.com/coletivoemaus/?locale=pt_BR" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-facebook"></i></a>
+
+                        <a href="https://twitter.com/coletivoemaus" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-twitter"></i></a>
+
+                        <a href="https://coletivoemaus.tumblr.com/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-tumblr"></i></a>
+
+                    </div>
+                </div>
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CATEGORIAS</h3>
+                    </li>
+                    <li>
+                        <a href="acessoriosemaus.html" class="footer-link">Acessórios</a>
+                    </li>
+                    <li>
+                        <a href="camisetasemaus.html" class="footer-link">Camisetas</a>
+                    </li>
+                    <li>
+                        <a href="moletonsemaus.html" class="footer-link">Moletons</a>
+                    </li>
+                    <li>
+                        <a href="pontosemaus.html" class="footer-link">Pontos</a>
+                    </li>
+                    <li>
+                        <a href="unisexemaus.html" class="footer-link">Unissex</a>
+                    </li>
+                </ul>
+
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CONTEÚDO</h3>
+                    </li>
+                    <li>
+                        <a href="lojaemaus.html" class="footer-link">Loja Física</a>
+                    </li>
+                    <li>
+                        <a href="faleconoscoemaus.html" class="footer-link">Fale conosco</a>
+                    </li>
+                    <li>
+                        <a href="sobrenosemaus.html" class="footer-link">Sobre nós</a>
+                    </li>
+                    <li>
+                        <a href="politicasemaus.html" class="footer-link">Políticas de privacidade</a>
+                    </li>
+                    <li>
+                        <a href="trocaemaus.html" class="footer-link">Troca e devoluções</a>
+                    </li>
+                </ul>
+
+                <div id="footer-contatos">
+                    <h3>CONTATOS</h3>
+
+                    <div id="coluna-tres">
+                        <div class="contato">
+                            <a href="tel:(11) 3425-7299" class="footer-link" id="telefone icone">
+                                <i class="fa-solid fa-phone-volume"></i></a>
+                            <h4 class="rede-nome">11.99734.0303</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="contato@coletivoemaus.com" class="footer-link" id="email icone">
+                                <i class="fa-solid fa-envelope"></i></a>
+                            <h4 class="rede-nome">@coletivoemaus.com</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="https://goo.gl/maps/q5jhUDYv6CsGCAB37?coh=178572&entry=tt" class="footer-link"
+                                id="mapa icone">
+                                <i class="fa-solid fa-location-dot"></i></a>
+                            <h4 class="rede-nome">Av. Brasil, 326 - Vila Correa</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-final">
+                <p>&#169
+                    2023 all rights reserve</p>
+            </div>
+
+    </footer>
+
+
+    <!-- // ==igual
+    // =recebe -->
+    <script>
+
+function obterNomeUsuarioLogado() {
+    return localStorage.getItem('nomeUsuario') || 'Nome do Usuário Desconhecido';
+}
+
+
+
+        // Função para carregar os itens do carrinho do armazenamento local
+        function carregarItensCarrinho() {
+            const carrinho = localStorage.getItem('carrinho');
+            const carrinhoResumo = document.getElementById('carrinho-resumo');
+
+            if (carrinho) {
+                const carrinhoItens = JSON.parse(carrinho);
+
+                carrinhoResumo.innerHTML = '';
+
+                carrinhoItens.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.innerHTML = `
+                        <p>${item.nome} - R$${item.preco.toFixed(2)}</p>
+                        <!-- Adicione mais detalhes do item conforme necessário -->
+                    `;
+                    carrinhoResumo.appendChild(itemElement);
+                });
+            }
+        }
+
+        // Chame as funções ao carregar a página
+        function carregarNomeUsuario() {
+    const nomeUsuario = obterNomeUsuarioLogado();
+    document.getElementById('nome-usuario').textContent = nomeUsuario;
+}
+
+        carregarItensCarrinho();
+
+        function copiarLinkPix() {
+            var copyText = document.getElementById("pix-link");
+            var textArea = document.createElement("textarea");
+            textArea.value = copyText.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert("Link PIX copiado!");
+        }
+
+        function verificarCampos() {
+    // Obtenha referências aos campos que você deseja verificar
+    var camposEndereco = document.querySelectorAll("#endereco input");
+    var camposPagamento = document.querySelectorAll("#pagamento input");
+
+    // Verifique se todos os campos estão preenchidos
+    var todosPreenchidos = Array.from(camposEndereco).every(campo => campo.value.trim() !== "") &&
+        Array.from(camposPagamento).every(campo => campo.value.trim() !== "");
+
+    if (todosPreenchidos) {
+        // Ocultar mensagem de erro (caso esteja sendo exibida)
+        document.getElementById("mensagemErro").style.display = "none";
+
+        // Exibir mensagem de sucesso
+        document.getElementById("mensagemSucesso").style.display = "block";
+    } else {
+        // Ocultar mensagem de sucesso (caso esteja sendo exibida)
+        document.getElementById("mensagemSucesso").style.display = "none";
+
+        // Exibir mensagem de erro
+        document.getElementById("mensagemErro").style.display = "block";
+    }
+}
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const opcaoPix = document.getElementById('opcaoPix');
+        const opcaoCartao = document.getElementById('opcaoCartao');
+        const pixSection = document.getElementById('pixSection');
+        const cartaoSection = document.getElementById('cartaoSection');
+
+        opcaoPix.addEventListener('change', function () {
+            if (opcaoPix.checked) {
+                pixSection.style.display = 'block';
+                cartaoSection.style.display = 'none';
+            }
+        });
+
+        opcaoCartao.addEventListener('change', function () {
+            if (opcaoCartao.checked) {
+                pixSection.style.display = 'none';
+                cartaoSection.style.display = 'block';
+            }
+        });
+    });
+    </script>
+
+    </script>
+</body>
+
+</html>

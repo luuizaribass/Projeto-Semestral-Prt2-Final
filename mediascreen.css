@@ -1,0 +1,171 @@
+@media only screen and (max-width: 1200px) {
+
+    /* começo da paleta de cor */
+
+    :root {
+        --color-neutral-00: #31201E;
+        --color-neutral-0: #31201E;
+        --color-neutral-10: #171717;
+        --color-neutral-20: #000000;
+        --color-neutral-30: #ffffff;
+        --color-neutral-40: #f5f5f5;
+        --color-neutral-50: #E8E8E8;
+        --color-neutral-60: #a8a29e;
+        --color-neutral-70: #fff7f4;
+        --color-neutral-80: #fff2f0;
+        --color-neutral-90: #F1E3E1;
+        --color-neutral-100: #f0d9d6;
+        --color-neutral-110: #E0C7BD;
+        --color-neutral-120: #BF8B86;
+        --color-neutral-130: #DC9F8D;
+        --color-neutral-140: #A07573;
+        --color-neutral-150: #A66454;
+        --color-neutral-160: #A66454;
+    }
+
+    /* fim da paleta de cor */
+
+    /* começo menu responsivo */
+
+    #conteudo {
+        padding: 0px;
+    }
+
+    
+
+    span#burguer {
+        background-color: var(--color-neutral-110);
+        color: var(--color-neutral-20);
+        display: block;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    span#burguer:hover {
+        background-color: var(--color-neutral-110);
+        color: var(--color-neutral-40);
+    }
+
+    menu {
+        display: none;
+    }
+
+    header, ul {
+        flex-direction: column;
+    }
+
+    header {
+        align-items: flex-start;
+    }
+
+    header > ul {
+        text-align: center;
+    }
+
+    #menu-geral {
+        display: block;
+        align-items: center;
+    }
+
+    menu>ul {
+        width: 100%;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        color: var(--color-neutral-20);
+        background-color: var(--color-neutral-30);
+    }
+
+    .modo-noturno menu>ul {
+        background-color: var(--color-neutral-10);
+    }
+
+    #espaço, #iconespaço {
+        border-bottom: 1.5px solid var(--color-neutral-120);
+    }
+
+    #espaço, #iconespaço{
+        padding: 8px 0px;
+    }
+    
+    #contagem {
+        /* #cart-count { */
+        position: absolute;
+        top: 4px;
+        right: -10px;
+        background-color: var(--color-neutral-120);
+        color: white;
+        border-radius: 50%;
+        padding: 1px 5.5px;
+        font-size: 8px;
+    }
+
+    .barraPesquisar {
+        display: none;
+    }
+
+    #itensMenu{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    /* 
+    #itens-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header>a {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    menu>ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    menu>ul>li>a {
+        width: 100%;
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        text-align: center;
+        color: var(--color-neutral-20);
+        background-color: var(--color-neutral-70);
+        border-top: 2px solid var(--color-neutral-90);
+    }
+
+    menu>ul>li>a>img {
+        width: 15px;
+    }
+
+
+    menu {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        text-align: center;
+        color: var(--color-neutral-20);
+        background-color: var(--color-neutral-70);
+        border-top: 2px solid var(--color-neutral-90);
+    }
+
+    span#burguer {
+        background-color: var(--color-neutral-110);
+        color: var(--color-neutral-20);
+        display: block;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    span#burguer:hover {
+        background-color: var(--color-neutral-110);
+        color: var(--color-neutral-40);
+    } */
+
+     /* fim menu responsivo */
+}

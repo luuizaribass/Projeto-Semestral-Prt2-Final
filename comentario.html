@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://trackingjs.com/build/tracking.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        /* começo da paleta de cor */
+
+        :root {
+            --color-neutral-00: #31201E;
+            --color-neutral-0: #31201E;
+            --color-neutral-10: #171717;
+            --color-neutral-20: #000000;
+            --color-neutral-30: #ffffff;
+            --color-neutral-40: #f5f5f5;
+            --color-neutral-50: #E8E8E8;
+            --color-neutral-60: #a8a29e;
+            --color-neutral-70: #fff7f4;
+            --color-neutral-80: #fff2f0;
+            --color-neutral-90: #F1E3E1;
+            --color-neutral-100: #f0d9d6;
+            --color-neutral-110: #E0C7BD;
+            --color-neutral-120: #BF8B86;
+            --color-neutral-130: #DC9F8D;
+            --color-neutral-140: #A07573;
+            --color-neutral-150: #A66454;
+            --color-neutral-160: #A66454;
+        }
+
+        /* fim da paleta de cor */
+
+        * {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html,
+        body {
+            background-color: var(--color-neutral-100);
+            height: 100%;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .comentar {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .botaozinho {
+            background-color: var(--color-neutral-120);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #camera {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* #foto {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        } */
+
+        #commentInput {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .botaozinho,
+        .commentButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .commentContainer {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .commentText {
+            margin-bottom: 10px;
+        }
+
+        .commentImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .deleteButton {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .retanguulo {
+            height: 20px;
+            width: 100%;
+            background-color: #f1f1f1;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section class="comentar">
+        <h1 class="coment">O que você achou do produto?</h1>
+
+
+        <!-- Botão de download inicialmente oculto -->
+        <!-- <a id="downloadLink" download="foto.png" style="display: none;">Clique para baixar</a> -->
+
+        <div id="foto"></div>
+        <div class="buttons">
+            <button class="botaozinho" onclick="abrirCamera()">Abrir câmera</button>
+            <button class="botaozinho" onclick="tirarFoto()">Tirar foto</button>
+            <button class="botaozinho" onclick="fechar()">Fechar câmera</button>
+        </div>
+        <video id="camera" autoplay></video>
+        <!-- Área de comentários -->
+        <div id="comments">
+            <input type="text" id="commentInput" placeholder="Digite seu comentário">
+            <button class="botaozinho" onclick="postarComentario()">Postar Comentário</button>
+
+            <div class="retanguulo"></div>
+            <div class="background" id="commentSection"></div>
+        </div>
+
+        <div class="retanguulo"></div>
+    </section>
+
+    <script>
+        var mediaStream;
+        var downloadLink = document.getElementById('downloadLink');
+        var commentInput = document.getElementById('commentInput');
+        var commentSection = document.getElementById('commentSection');
+
+        // Carrega os comentários armazenados localmente ao carregar a página
+        window.onload = function () {
+            carregarComentarios();
+        };
+
+        function abrirCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+                .then(function (stream) {
+                    mediaStream = stream;
+                    const areaVideo = document.getElementById('camera');
+                    areaVideo.srcObject = stream;
+                })
+                .catch(function (error) {
+                    console.error('Erro ao acessar a câmera:', error);
+                });
+        }
+
+        function tirarFoto() {
+            const areaVideo = document.getElementById('camera');
+
+            // Pausa a reprodução do vídeo
+            areaVideo.pause();
+
+            const canvas = document.createElement('canvas');
+            canvas.width = areaVideo.videoWidth;
+            canvas.height = areaVideo.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(areaVideo, 0, 0, canvas.width, canvas.height);
+            const imageDataURL = canvas.toDataURL();
+            const fotoDiv = document.getElementById('foto');
+            fotoDiv.style.backgroundImage = `url(${imageDataURL})`;
+
+            // Atualiza o botão de download
+            downloadLink.href = imageDataURL;
+            downloadLink.style.display = 'inline-block';
+
+            // Remove o stream da câmera para interromper a transmissão
+            areaVideo.srcObject = null;
+
+            // Se desejar retomar a reprodução da câmera, pode-se reiniciar o stream
+            // areaVideo.srcObject = mediaStream;
+        }
+
+        // Supondo que você tenha uma função chamada iniciarCamera() para começar a câmera
+        function iniciarCamera() {
+            // Lógica para iniciar a câmera
+        }
+
+        // Função para retomar a câmera
+        function retomarCamera() {
+            // Lógica para retomar a câmera
+            iniciarCamera(); // Por exemplo, chame a função de inicialização da câmera novamente
+        }
+
+        // Função para postar um comentário
+        function postarComentario() {
+            const comentario = commentInput.value;
+            if (comentario.trim() !== '') {
+                // ... (seu código de postagem de comentário)
+
+                // Retoma a câmera automaticamente após postar um comentário
+                retomarCamera();
+            }
+        }
+
+
+
+        function fechar() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+            }
+
+            const areaVideo = document.getElementById('camera');
+            areaVideo.srcObject = null;
+            mediaStream = null;
+
+            // Oculta o botão de download ao fechar a câmera
+            downloadLink.style.display = 'none';
+
+            // Remove a imagem
+            const fotoDiv = document.getElementById('foto');
+            fotoDiv.style.backgroundImage = 'none';
+        }
+
+
+        function postarComentario() {
+            const comentario = commentInput.value;
+            if (comentario.trim() !== '') {
+                const commentContainer = document.createElement('div');
+                commentContainer.classList.add('commentContainer');
+
+                // Adiciona o texto do comentário
+                const commentText = document.createElement('div');
+                commentText.classList.add('commentText');
+                commentText.textContent = comentario;
+                commentContainer.appendChild(commentText);
+
+                // Adiciona a imagem do comentário
+                const commentImage = document.createElement('img');
+                commentImage.classList.add('commentImage');
+                commentImage.src = document.getElementById('foto').style.backgroundImage.slice(5, -2); // Obtém a URL da imagem
+                commentContainer.appendChild(commentImage);
+
+                // Adiciona o botão de exclusão
+                const deleteButton = document.createElement('div');
+                deleteButton.classList.add('deleteButton');
+                deleteButton.textContent = 'Excluir';
+                deleteButton.onclick = function () {
+                    commentContainer.remove();
+                    salvarComentarios();
+                };
+                commentContainer.appendChild(deleteButton);
+
+                // Adiciona o contêiner de comentário à área de comentários
+                commentSection.appendChild(commentContainer);
+
+                // Limpa o campo de entrada
+                commentInput.value = '';
+
+                // Armazena os comentários localmente
+                salvarComentarios();
+            }
+        }
+
+
+        function salvarComentarios() {
+            const comentarios = [];
+            const commentDivs = document.getElementById('commentSection').children;
+            for (let i = 0; i < commentDivs.length; i++) {
+                const comentario = {
+                    texto: commentDivs[i].querySelector('.commentText').textContent,
+                    imagem: commentDivs[i].querySelector('.commentImage').src
+                };
+                comentarios.push(comentario);
+            }
+
+            // Armazena os comentários no localStorage
+            localStorage.setItem('comentarios', JSON.stringify(comentarios));
+        }
+
+        function carregarComentarios() {
+            const comentarios = localStorage.getItem('comentarios');
+            if (comentarios) {
+                const commentDivs = JSON.parse(comentarios);
+                for (let i = 0; i < commentDivs.length; i++) {
+                    const commentContainer = document.createElement('div');
+                    commentContainer.classList.add('commentContainer');
+
+                    // Adiciona o texto do comentário
+                    const commentText = document.createElement('div');
+                    commentText.classList.add('commentText');
+                    commentText.textContent = commentDivs[i].texto;
+                    commentContainer.appendChild(commentText);
+
+                    // Adiciona a imagem do comentário
+                    const commentImage = document.createElement('img');
+                    commentImage.classList.add('commentImage');
+                    commentImage.src = commentDivs[i].imagem;
+                    commentContainer.appendChild(commentImage);
+
+                    // Adiciona o botão de exclusão
+                    const deleteButton = document.createElement('div');
+                    deleteButton.classList.add('deleteButton');
+                    deleteButton.textContent = 'Excluir';
+                    deleteButton.onclick = function () {
+                        commentContainer.remove();
+                        salvarComentarios();
+                    };
+                    commentContainer.appendChild(deleteButton);
+
+                    // Adiciona o contêiner de comentário à área de comentários
+                    commentSection.appendChild(commentContainer);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

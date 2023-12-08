@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link class="icone" rel="icon" href="img/icone.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Cadastro Emaus</title>
+</head>
+
+<body>
+    <main id="container_login">
+        <form id="login_form">
+            <div id="form_header">
+                <a>
+                    <h1>Emaus</h1>
+                </a>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+
+
+
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="name">
+                        Nome do usuário
+                        <div class="input-field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="email">
+                        E-mail
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="password">
+                        Nova senha
+                        <div class="input-field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="confirm_password">
+                        Confirmar senha
+                        <div class="input-field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="confirm_password" name="confirm_password" required>
+                        </div>
+                    </label>
+                </div>
+
+                <div id="forgot_password">
+                    <a href="loginemaus.html">Voltar para login</a>
+                </div>
+                <div id="forgot_password">
+                    <a href="index.html">Cancelar</a>
+                </div>
+            </div>
+
+            <button type="submit" id="login_button">Me cadastrar</button>
+        </form>
+    </main>
+    <script>
+
+        //começo noturno
+        const mode = document.getElementById('mode_icon');
+        mode.addEventListener('click', () => {
+            const form = document.getElementById('login_form');
+            if (mode.classList.contains('fa-moon')) {
+                mode.classList.remove('fa-moon');
+                mode.classList.add('fa-sun');
+
+                form.classList.add('dark');
+                return;
+            }
+
+            mode.classList.add('fa-moon');
+            mode.classList.remove('fa-sun');
+            form.classList.remove('dark');
+        });
+
+        //fim noturno
+
+        //começo cadastro
+
+        const form = document.getElementById('login_form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            alert('Cadastro bem-sucedido! Redirecionando para página de login');
+            location.href = 'loginemaus.html';
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem. Tente novamente.');
+                return;
+            }
+
+            if (localStorage.getItem(userData)) {
+                alert('Usuário já cadastrado. Tente outro nome de usuário.');
+                return;
+            }
+
+        });
+
+        //começo cadastro
+    </script>
+</body>
+
+</html>

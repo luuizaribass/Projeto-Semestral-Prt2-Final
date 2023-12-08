@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="smartphone.css">
+    <link rel="icon" href="img/icone.png">
+    <title>Jogo da cobrinha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppings", sans-serif;
+        }
+
+        body {
+            background-color: #E0C7BD;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #BF8B86;
+        }
+
+        .snake-grid {
+            background-color: #ffffff;
+        }
+
+        canvas {
+            background-color: #000000;
+            image-rendering: pixelated;
+        }
+
+        .score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+
+        .score--value {
+            font-weight: 700;
+            font-size: 4.5rem;
+            display: block;
+            margin-top: -10px;
+        }
+
+        .menu-screen {
+            position: absolute;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .game-over {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 3rem;
+        }
+
+        .final-score {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .btn-play,
+        .btn-resgatar{
+            border: none;
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #BF8B86;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-play:hover {
+            background-color: #000000;
+        }
+
+        .btn-resgatar:hover {
+            background-color: #A66454;
+        }
+
+        .grid {
+            background-color: #A66454;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .score {
+                font-size: 1.4rem;
+            }
+
+            .score--value {
+                font-size: 3rem;
+            }
+
+            .btn-play,
+            .btn-pause {
+                font-size: 0.7rem;
+                padding: 6px 10px;
+            }
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .score {
+                font-size: 1.6rem;
+            }
+
+            .score--value {
+                font-size: 3.5rem;
+            }
+
+            .btn-play,
+            .btn-pause {
+                font-size: 0.9rem;
+                padding: 7px 11px;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {}
+
+        canvas {
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resgatar">
+        <a href="pontosemaus.html"><button class="btn-resgatar">Voltar</button></a>
+    </div>
+
+    <!-- Botão de resgate de pontos -->
+    <div class="resgatar">
+        <button class="btn-resgatar" onclick="resgatarPontos()">Resgatar Pontos</button>
+    </div>
+
+    <!-- Exibição da mensagem de resgate -->
+    <div id="mensagem-resgate"></div>
+
+    <!-- Exibição da pontuação -->
+    <div class="score">score: <span class="score--value">00</span></div>
+
+    <!-- Tela de menu -->
+    <div class="menu-screen">
+        <span class="game-over">game over</span>
+        <button class="btn-play">
+            <span class="material-symbols-outlined">
+                play_circle
+            </span>
+            Jogar novamente
+        </button>
+        <div id="countdown-container" style="display: none; margin-top: 10px;">
+            <div id="countdown-bar" style="background-color: #A66454; height: 20px; width: 100%;"></div>
+        </div>
+    </div>
+
+    <canvas width="550" height="550"></canvas>
+
+    <script src="cobrinha.js"></script>
+</body>
+
+</html>

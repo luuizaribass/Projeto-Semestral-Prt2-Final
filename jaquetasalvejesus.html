@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coletivo emaus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediascreen.css">
+    <link class="icon" rel="icon" href="img/icone.png">
+</head>
+
+<body onresize="mudouTamanho()" onload="inicializarPagina()">
+    <header>
+        <div id="menu-geral">
+            <a id="" href="index.html"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
+            <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+            <menu id="itensMenu">
+                <ul>
+                    <li><a id="espaço" href="camisetasemaus.html">camisetas</a></li>
+                    <li><a id="espaço" href="moletonsemaus.html">moletons</a></li>
+                    <li><a id="espaço" href="unissexemaus.html">unissex</a></li>
+                    <li><a id="espaço" href="acessoriosemaus.html">acessórios</a></li>
+                    <li><a id="espaço" href="#">pontos</a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="tel:(11) 3425-7299"><i
+                                class="fa-solid fa-phone"></i></a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
+                    </li>
+                    <li id="carrinhoGeral">
+                        <a id="iconespaço" class="imgmenu" href="carrinhoemaus.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="contagem" class="contagem">0</div>
+                        </a>
+                    </li>
+                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
+                    <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
+                    <li>
+                        <div class="barraPesquisar">
+                            <input checked="" class="checkbox" type="checkbox">
+                            <div class="mainbox">
+                                <div class="iconContainer">
+                                    <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"
+                                        class="search_icon">
+                                        <path
+                                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <input class="search_input" placeholder="pesquisar" type="text">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+
+    <section id="veja-item">
+        <figure class="troca-item" id="fig-item">
+            <img src="img/jaqmolerose1.png" onmouseover="this.src='img/jaqmolerose2.png'"
+                onmouseout="this.src='img/jaqmolerose1.png'">
+        </figure>
+    
+        <div id="opcoes-item">
+            <h2>JAQUETA MOLETOM JESUS SALVE</h2>
+            <p>Uma jaqueta confortável e estilosa que expressa a mensagem de Jesus.</p>
+    
+            <button onclick="adicionarAoCarrinho('JAQUETA MOLETOM JESUS SALVE', 298.00, 'img/jaqmolerose1.png')">Adicionar ao Carrinho</button>
+    
+            <div>
+                <label>Gênero:</label>
+                <input type="radio" name="genero" value="masculino">Masculino
+                <input type="radio" name="genero" value="feminino">Feminino
+            </div>
+    
+            <div>
+                <label>Tamanho:</label>
+                <select id="tamanho">
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                </select>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+    <!-- <section id="itens-geral" class="selection">
+        <div class="itens-lista">
+
+            <div class="item-caixa">
+                <figure class="troca-item" id="fig-item">
+                    <img src="img/jaqmolerose1.png" onmouseover="this.
+                            src='img/jaqmolerose2.png'" onmouseout="this.
+                            src='img/jaqmolerose1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h4 class="nome">JAQUETA MOLETOM JESUS SALVE</h4>
+                    <p class="preco">R$298,00</p>
+                    ou 5x de R$59,60
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('JAQUETA MOLETOM JESUS SALVE', 298.00, 'img/jaqmolerose1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="troca-item" id="fig-item">
+                    <img src="img/jaqmolerosa1.png" onmouseover="this.
+                            src='img/jaqmolerosa1 (2).png'" onmouseout="this.
+                            src='img/jaqmolerosa1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h4 class="nome">JAQUETA MOLETOM HALLELUJAH</h4>
+                    <p class="preco">R$298,00</p>
+                    ou 5x de R$59,60
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA EIS ME AQUI', 108.00, 'img/camisbrasil1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="troca-item" id="fig-item">
+                    <img src="img/jaqmolemarro1.png" onmouseover="this.
+                                src='img/jaqmolemarro2.png'" onmouseout="this.
+                                src='img/jaqmolemarro1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h4 class="nome">JAQUETA BOMBER FOI NA CRUZ</h4>
+                    <p class="preco">R$498,00</p>
+                    <p class="parcela">ou 5x de R$99,60</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('JAQUETA BOMBER FOI NA CRUZ', 108.00, 'img/camisbrasil1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
+
+    <footer>
+        <div id="footer-cor">
+            <div id="footer-corpo">
+                <div id="footer-redes">
+                    <img src="img/logo-white.png" alt="">
+                    <p>acesse nossas redes</p>
+
+                    <div id="footer-midias">
+
+                        <a href="https://api.whatsapp.com/send?phone=5511930234169" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-whatsapp"></i></a>
+
+                        <a href="https://www.instagram.com/coletivo_emaus/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-instagram"></i></a>
+
+                        <a href="https://www.facebook.com/coletivoemaus/?locale=pt_BR" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-facebook"></i></a>
+
+                        <a href="https://twitter.com/coletivoemaus" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-twitter"></i></a>
+
+                        <a href="https://coletivoemaus.tumblr.com/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-tumblr"></i></a>
+
+                    </div>
+                </div>
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CATEGORIAS</h3>
+                    </li>
+                    <li>
+                        <a href="acessoriosemaus.html" class="footer-link">Acessórios</a>
+                    </li>
+                    <li>
+                        <a href="camisetasemaus.html" class="footer-link">Camisetas</a>
+                    </li>
+                    <li>
+                        <a href="moletonsemaus.html" class="footer-link">Moletons</a>
+                    </li>
+                    <li>
+                        <a href="pontosemaus.html" class="footer-link">Pontos</a>
+                    </li>
+                    <li>
+                        <a href="unisexemaus.html" class="footer-link">Unissex</a>
+                    </li>
+                </ul>
+
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CONTEÚDO</h3>
+                    </li>
+                    <li>
+                        <a href="lojaemaus.html" class="footer-link">Loja Física</a>
+                    </li>
+                    <li>
+                        <a href="faleconoscoemaus.html" class="footer-link">Fale conosco</a>
+                    </li>
+                    <li>
+                        <a href="sobrenosemaus.html" class="footer-link">Sobre nós</a>
+                    </li>
+                    <li>
+                        <a href="politicasemaus.html" class="footer-link">Políticas de privacidade</a>
+                    </li>
+                    <li>
+                        <a href="trocaemaus.html" class="footer-link">Troca e devoluções</a>
+                    </li>
+                </ul>
+
+                <div id="footer-contatos">
+                    <h3>CONTATOS</h3>
+
+                    <div id="coluna-tres">
+                        <div class="contato">
+                            <a href="tel:(11) 3425-7299" class="footer-link" id="telefone icone">
+                                <i class="fa-solid fa-phone-volume"></i></a>
+                            <h4 class="rede-nome">11.99734.0303</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="contato@coletivoemaus.com" class="footer-link" id="email icone">
+                                <i class="fa-solid fa-envelope"></i></a>
+                            <h4 class="rede-nome">@coletivoemaus.com</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="https://goo.gl/maps/q5jhUDYv6CsGCAB37?coh=178572&entry=tt" class="footer-link"
+                                id="mapa icone">
+                                <i class="fa-solid fa-location-dot"></i></a>
+                            <h4 class="rede-nome">Av. Brasil, 326 - Vila Correa</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-final">
+                <p>&#169
+                    2023 all rights reserve</p>
+            </div>
+
+    </footer>
+
+
+    <!-- // ==igual
+    // =recebe -->
+    <script>
+
+        // começo menu responsivo
+
+
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                itensMenu.style.display = 'block'
+            } else {
+                itensMenu.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (itensMenu.style.display == 'block') {
+                itensMenu.style.display = 'none'
+            } else {
+                itensMenu.style.display = 'block'
+            }
+        }
+
+        //fim menu responsivo
+
+        // começo modo noturno
+
+        const mode = document.getElementById('mode_icon');
+        const body = document.body;
+        const itens = document.getElementById('itens-geral');
+        const caixa = document.getElementsByClassName('item-caixa');
+        const logoImg = document.getElementById('logo-img');
+        const mode_icon = document.getElementById('mode_icon');
+        const moon_icon = document.getElementById('moon_icon');
+        const ul = document.ul;
+
+        mode.addEventListener('click', () => {
+            if (mode.classList.contains('fa-moon')) {
+                mode.classList.remove('fa-moon');
+                mode.classList.add('fa-sun');
+                body.classList.add('modo-noturno');
+                logoImg.src = 'img/logo-white.png';
+                itens.classList.add('modo-noturno');
+                caixa.classList.add('modo-noturno');
+                ul.classList.add('modo-noturno');
+            } else {
+                mode.classList.add('fa-moon');
+                mode.classList.remove('fa-sun');
+                body.classList.remove('modo-noturno');
+                logoImg.src = 'img/logo-img.png';
+                itens.classList.remove('modo-noturno');
+                caixa.classList.remove('modo-noturno');
+                ul.classList.remove('modo-noturno');
+            }
+        });
+
+        //troca cor sol e lua 
+
+        mode_icon.addEventListener('mouseover', () => {
+            mode_icon.style.color = '#BF8B86';
+        });
+
+        mode_icon.addEventListener('mouseout', () => {
+            if (!mode.classList.contains('fa-sun')) {
+                mode_icon.style.color = '#000000';
+            }
+        });
+
+        moon_icon.addEventListener('mouseover', () => {
+            moon_icon.style.color = '#BF8B86';
+        });
+
+        moon_icon.addEventListener('mouseout', () => {
+            moon_icon.style.color = '#000000';
+        });
+
+        //fim modo noturno
+
+        //começo carrossel de imagem
+
+        let imagemAtual = 1;
+        const totalImagens = 3;
+
+        function mudarImagem(direcao) {
+            imagemAtual += direcao;
+
+            if (imagemAtual > totalImagens) {
+                imagemAtual = 1;
+            } else if (imagemAtual < 1) {
+                imagemAtual = totalImagens;
+            }
+
+            atualizarCarrossel();
+        }
+
+        function atualizarCarrossel() {
+            const imagensContainer = document.getElementById('imagens');
+            const larguraImagem = document.querySelector('.imagem').offsetWidth;
+
+            imagensContainer.style.transition = 'transform 0.5s ease-in-out';
+            imagensContainer.style.transform = `translateX(${-larguraImagem * (imagemAtual - 1)}px)`;
+        }
+
+        setInterval(() => mudarImagem(1), 6000);
+
+
+        //fim carrossel de imagem
+
+        //começo barra de pesquisa
+
+
+
+        //fim barra de pesquisa
+
+
+        // começo carrinho de compra
+
+        function adicionarAoCarrinho(nome, preco, imagem) {
+    const genero = document.querySelector('input[name="genero"]:checked');
+    const tamanho = document.getElementById('tamanho').value;
+
+    if (!genero || !tamanho) {
+        alert('Selecione as opções para adicionar ao carrinho.');
+        return;
+    }
+
+    const descricao = "Uma jaqueta confortável e estilosa que expressa a mensagem de Jesus.";
+
+    const item = {
+        nome: nome,
+        preco: preco,
+        imagem: imagem,
+        genero: genero.value,
+        tamanho: tamanho,
+        descricao: descricao
+    };
+
+    // Obtenha os dados do carrinho do armazenamento local (localStorage)
+    let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+
+    // Adicione o novo item ao carrinho
+    carrinho.push(item);
+
+    // Atualize o carrinho no armazenamento local
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Atualize o número de itens no ícone do carrinho
+    atualizarNumeroItensCarrinho();
+
+    // Mostre a mensagem de item adicionado ao carrinho
+    mostrarMensagemCarrinho();
+
+    // Você pode adicionar outras ações desejadas aqui, como redirecionar para a página do carrinho
+}
+
+
+
+        // Função para atualizar o número de itens no ícone do carrinho
+        function atualizarNumeroItensCarrinho() {
+            const carrinho = localStorage.getItem('carrinho');
+            const numeroItens = carrinho ? JSON.parse(carrinho).length : 0;
+
+            const cartCountElement = document.getElementById('contagem');
+            cartCountElement.innerText = numeroItens;
+        }
+
+        // Função para mostrar a mensagem de item adicionado ao carrinho
+        function mostrarMensagemCarrinho() {
+            const addToCartMessage = document.getElementById('add-to-cart-message');
+            addToCartMessage.style.display = 'block';
+
+            // Esconder a mensagem após 2 segundos
+            setTimeout(() => {
+                addToCartMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        // Chame a função para garantir que o número de itens seja atualizado ao carregar a página
+        window.onload = function () {
+            atualizarNumeroItensCarrinho();
+        };
+
+        function inicializarPagina() {
+            // Resetar o carrinho ao recarregar a página
+            localStorage.removeItem('carrinho');
+            // Atualizar o número de itens no ícone do carrinho
+            atualizarNumeroItensCarrinho();
+        }
+
+
+        // fim carrinho de compra 
+
+    </script>
+</body>
+
+</html>

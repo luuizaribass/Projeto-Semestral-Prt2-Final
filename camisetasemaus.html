@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coletivo emaus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediascreen.css">
+    <link class="icon" rel="icon" href="img/icone.png">
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #loading-spinner {
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #A07573;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body onresize="mudouTamanho()" onload="inicializarPagina()">
+
+    <div id="loading">
+        <div id="loading-spinner"></div>
+    </div>
+
+    <header>
+        <div id="menu-geral">
+            <a id="" href="index.html"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
+            <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+            <menu id="itensMenu">
+                <ul>
+                    <li><a id="espaço" href="camisetasemaus.html">camisetas</a></li>
+                    <li><a id="espaço" href="moletonsemaus.html">moletons</a></li>
+                    <li><a id="espaço" href="unissexemaus.html">unissex</a></li>
+                    <li><a id="espaço" href="acessoriosemaus.html">acessórios</a></li>
+                    <li><a id="espaço" href="pontosemaus.html">pontos</a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="tel:(11) 3425-7299"><i
+                                class="fa-solid fa-phone"></i></a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
+                    </li>
+                    <li id="carrinhoGeral">
+                        <a id="iconespaço" class="imgmenu" href="carrinhoemaus.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="contagem" class="contagem">0</div>
+                        </a>
+                    </li>
+                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
+                    <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
+                    <li>
+                        <div class="container">
+                            <input type="text" name="text" id="pesquise" class="input" required=""
+                                placeholder="Pesquise aqui..." oninput="filtrarProdutos()">
+                            <div class="icon">
+                                <i class="fa-solid fa-magnifying-glass">
+                                    <title>Search</title>
+                                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+                                        fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32">
+                                    </path>
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
+                                </i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+
+
+
+    <div id="pontos" class="pontos">
+        <div class="pontos-conteudo">
+            <img src="img/logo-img.png" alt="">
+            <i onclick="aparecer()" class="fa-solid fa-share-from-square"></i>
+            <div class="pontos-textos">
+                <h6>confira os pontos</h6>
+                <span id="pontosFinaiss"></span>
+                <p>para conseguir mais pontos clique em ‘utilizar pontos’ e navegue na página e escolha uma das opções
+                    de conseguir os score.</p>
+                <button><a href="pontosemaus.html">ultilizar pontos</a></button>
+            </div>
+        </div>
+        <img onclick="aparecer()" id="pontos-img" src="img/food.png" alt="">
+    </div>
+
+    <section class="fffff">
+        <div class="container-carrossel">
+            <img class="imagem-carrossel ativo" src="img/inicio1.png">
+            <img class="imagem-carrossel" src="img/inicio2.png">
+
+            <img class="imagem-carrossel" src="img/inicio3.png">
+            <button class="botao-carrossel botao-anterior" onclick="mudarImagem(-1)">❮</button>
+            <button class="botao-carrossel botao-proximo" onclick="mudarImagem(1)">❯</button>
+        </div>
+    </section>
+
+    <!-- <div id="carrossel">
+        <div id="imagens">
+            <div class="imagem"><img src="img/inicio1.png" alt="Imagem 1"></div>
+            <div class="imagem"><img src="img/inicio2.png" alt="Imagem 2"></div>
+            <div class="imagem"><img src="img/inicio3.png" alt="Imagem 3"></div>
+        </div>
+        <button id="anterior" onclick="mudarImagem(-1)">❮</button>
+        <button id="proximo" onclick="mudarImagem(1)">❯</button>
+    </div> -->
+
+
+    <div id="conteudo">
+        <img src="img/fretecamisa.png" alt="" class="frete">
+    </div>
+
+    <!-- Adicione este elemento para exibir a mensagem de "Nenhum item encontrado" -->
+    <div id="nenhumItemEncontrado" style="display: none;">Ops! Nenhum item foi encontrado.</div>
+
+
+    <section id="itens-geral" class="selection">
+
+        <div class="itens-lista">
+            <div class="item-caixa">
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camispreta1.png" onmouseover="this.
+                            src='img/camispreta2.png'" onmouseout="this.
+                            src='img/camispreta1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA DEUS RESPONDE FOGO</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$128,00</h2>
+                    <p class="parcela">ou 3x de R$42,66</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA DEUS RESPONDE FOGO', 128.00, 'img/camispreta1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisceu1.png" onmouseover="this.
+                            src='img/camisceu2.png'" onmouseout="this.
+                            src='img/camisceu1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA TERRA COMO NO CÉU</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$128,00</h2>
+                    <p class="parcela">ou 3x de R$42,66</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA TERRA COMO NO CÉU', 128.00 , 'img/camisceu1.png.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camismar1.png" onmouseover="this.
+                                src='img/camismar2.png'" onmouseout="this.
+                                src='img/camismar1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA DEUS ABRE O MAR</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$118,00</h2>
+                    <p class="parcela">ou 2x de R$59,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA DEUS ABRE O MAR', 118.00, 'img/camismar1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="itens-lista">
+
+            <div class="item-caixa">
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camispe1.png" onmouseover="this.
+                            src='img/camispe2.png'" onmouseout="this.
+                            src='img/camispe1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA FEETS</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$118,00</h2>
+                    <p class="parcela">ou 2x de R$59,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA FEETS', 118.00, 'img/camispe1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisking1.png" onmouseover="this.
+                            src='img/camisking2.png'" onmouseout="this.
+                            src='img/camisking1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">OVERSIZED JESUS KING</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$138,00</h2>
+                    <p class="parcela">ou 3x de R$46,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('OVERSIZED JESUS KING', 138.00 , 'img/camisking1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisluz1.png" onmouseover="this.
+                            src='img/camisluz2.png'" onmouseout="this.
+                            src='img/camisluz1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">OVERSIZED SAL DA TERRA</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$118,00</h2>
+                    <p class="parcela">ou 2x de R$59,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('OVERSIZED SAL DA TERRA', 118.00, 'img/camisluz1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="itens-lista">
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisble1.png" onmouseover="this.
+                                src='img/camisble2.png'" onmouseout="this.
+                                src='img/camisble1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">OVERSIZED BLESSED BLACK</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$178,00</h2>
+                    <p class="parcela">ou 4x de R$44,50</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('OVERSIZED BLESSED BLACK', 178.00, 'img/camisble1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisduo1.png" onmouseover="this.
+                            src='img/camisduo2.png'" onmouseout="this.
+                            src='img/camisduo1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">OVERSIZED BLESSED DUO</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                        <h2 class="preco">R$178,00</h2>
+                        <p class="parcela">ou 4x de R$44,50</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('OVERSIZED BLESSED DUO', 178.00 , 'img/camisduo1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camised1.png" onmouseover="this.
+                                src='img/camised2.png'" onmouseout="this.
+                                src='img/camised1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">OVERSIZED BLESSED WHITE</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$178,00</h2>
+                    <p class="parcela">ou 4x de R$44,50</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('OVERSIZED BLESSED WHITE', 178.00, 'img/camised1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="itens-lista">
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisleao1.png" onmouseover="this.
+                                src='img/camisleao2.png'" onmouseout="this.
+                                src='img/camisleao1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA LION OF JUDAH</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                    <h2 class="preco">R$108,00</h2>
+                    <p class="parcela">ou 2x de R$54,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA LION OF JUDAH', 188.00, 'img/camisleao1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisbrasil1.png" onmouseover="this.
+                            src='img/camisbrasil2.png'" onmouseout="this.
+                            src='img/camisbrasil1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA EIS ME AQUI</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                        <h2 class="preco">R$108,00</h2>
+                        <p class="parcela">ou 2x de R$54,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA EIS ME AQUI', 108.00 , 'img/camisbrasil1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+
+            <div class="item-caixa">
+
+                <figure class="trocaItem" id="fig-item">
+                    <img src="img/camisjesus1.png" onmouseover="this.
+                                src='img/camisjesus2.png'" onmouseout="this.
+                                src='img/camisjesus1.png'">
+                </figure>
+                <div class="item-conteudo">
+                    <h1 class="nome">CAMISETA JESUS FLOW</h1>
+                    <h7 class="descricao">Confeccionada em tecido 100% algodão, possui gola careca com acabento em
+                        punho, mangas grandes , etiqueta de composição, taglass em Silk , etiquetas na barra e na parte
+                        inferior da gola, é estampada com tinta Silk screen na frente e nas costas.</h7>
+                        <h2 class="preco">R$108,00</h2>
+                        <p class="parcela">ou 2x de R$54,00</p>
+                    <button id="cesta"
+                        onclick="adicionarAoCarrinho('CAMISETA JESUS FLOW', 108.00, 'img/camisjesus1.png')"><i
+                            class="fa-solid fa-basket-shopping"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <footer>
+        <div id="footer-cor">
+            <div id="footer-corpo">
+                <div id="footer-redes">
+                    <img src="img/logo-white.png" alt="">
+                    <p>acesse nossas redes</p>
+
+                    <div id="footer-midias">
+
+                        <a href="https://api.whatsapp.com/send?phone=5511930234169" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-whatsapp"></i></a>
+
+                        <a href="https://www.instagram.com/coletivo_emaus/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-instagram"></i></a>
+
+                        <a href="https://www.facebook.com/coletivoemaus/?locale=pt_BR" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-facebook"></i></a>
+
+                        <a href="https://twitter.com/coletivoemaus" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-twitter"></i></a>
+
+                        <a href="https://coletivoemaus.tumblr.com/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-tumblr"></i></a>
+
+                    </div>
+                </div>
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CATEGORIAS</h3>
+                    </li>
+                    <li>
+                        <a href="acessoriosemaus.html" class="footer-link">Acessórios</a>
+                    </li>
+                    <li>
+                        <a href="camisetasemaus.html" class="footer-link">Camisetas</a>
+                    </li>
+                    <li>
+                        <a href="moletonsemaus.html" class="footer-link">Moletons</a>
+                    </li>
+                    <li>
+                        <a href="pontosemaus.html" class="footer-link">Pontos</a>
+                    </li>
+                    <li>
+                        <a href="unisexemaus.html" class="footer-link">Unissex</a>
+                    </li>
+                </ul>
+
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CONTEÚDO</h3>
+                    </li>
+                    <li>
+                        <a href="lojaemaus.html" class="footer-link">Loja Física</a>
+                    </li>
+                    <li>
+                        <a href="faleconoscoemaus.html" class="footer-link">Fale conosco</a>
+                    </li>
+                    <li>
+                        <a href="sobrenosemaus.html" class="footer-link">Sobre nós</a>
+                    </li>
+                    <li>
+                        <a href="politicasemaus.html" class="footer-link">Políticas de privacidade</a>
+                    </li>
+                    <li>
+                        <a href="trocaemaus.html" class="footer-link">Troca e devoluções</a>
+                    </li>
+                </ul>
+
+                <div id="footer-contatos">
+                    <h3>CONTATOS</h3>
+
+                    <div id="coluna-tres">
+                        <div class="contato">
+                            <a href="tel:(11) 3425-7299" class="footer-link" id="telefone icone">
+                                <i class="fa-solid fa-phone-volume"></i></a>
+                            <h4 class="rede-nome">11.99734.0303</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="contato@coletivoemaus.com" class="footer-link" id="email icone">
+                                <i class="fa-solid fa-envelope"></i></a>
+                            <h4 class="rede-nome">@coletivoemaus.com</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="https://goo.gl/maps/q5jhUDYv6CsGCAB37?coh=178572&entry=tt" class="footer-link"
+                                id="mapa icone">
+                                <i class="fa-solid fa-location-dot"></i></a>
+                            <h4 class="rede-nome">Av. Brasil, 326 - Vila Correa</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-final">
+                <p>&#169
+                    2023 all rights reserve</p>
+            </div>
+
+    </footer>
+
+
+    <!-- // ==igual
+    // =recebe -->
+    <script src="redireciona.js"></script>
+    <script src="carrossel.js"></script>
+    <script>
+
+        window.addEventListener('DOMContentLoaded', function () {
+            var loading = document.getElementById('loading');
+            setTimeout(function () {
+                loading.style.display = 'none';
+            }, 1500);
+        });
+
+        // começo menu responsivo
+
+
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                itensMenu.style.display = 'block'
+            } else {
+                itensMenu.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (itensMenu.style.display == 'block') {
+                itensMenu.style.display = 'none'
+            } else {
+                itensMenu.style.display = 'block'
+            }
+        }
+
+        //fim menu responsivo
+
+        // começo modo noturno
+
+        const mode = document.getElementById('mode_icon');
+        const body = document.body;
+        const itens = document.getElementById('itens-geral');
+        const conteudo = document.getElementById('itens-geral');
+        const caixa = document.getElementsByClassName('item-caixa');
+        const logoImg = document.getElementById('logo-img');
+
+        const nenhum = document.getElementById('nenhumItemEncontrado');
+        const ul = document.ul;
+
+        mode.addEventListener('click', () => {
+            if (mode.classList.contains('fa-moon')) {
+                mode.classList.remove('fa-moon');
+                mode.classList.add('fa-sun');
+                body.classList.add('modo-noturno');
+                logoImg.src = 'img/logo-white.png';
+                itens.classList.add('modo-noturno');
+                conteudo.classList.add('modo-noturno');
+                nenhum.classList.add('modo-noturno');
+                caixa.classList.add('modo-noturno');
+                ul.classList.add('modo-noturno');
+            } else {
+                mode.classList.add('fa-moon');
+                mode.classList.remove('fa-sun');
+                body.classList.remove('modo-noturno');
+                logoImg.src = 'img/logo-img.png';
+                itens.classList.remove('modo-noturno');
+                conteudo.classList.remove('modo-noturno');
+                nenhum.classList.remove('modo-noturno');
+                caixa.classList.remove('modo-noturno');
+                ul.classList.remove('modo-noturno');
+            }
+        });
+
+        //troca cor sol e lua 
+
+        const mode_icon = document.getElementById('mode_icon');
+        const moon_icon = document.getElementById('moon_icon');
+
+        mode_icon.addEventListener('mouseover', () => {
+            mode_icon.style.color = '#BF8B86';
+        });
+
+        mode_icon.addEventListener('mouseout', () => {
+            if (!mode.classList.contains('fa-sun')) {
+                mode_icon.style.color = '#000000';
+            }
+        });
+
+        moon_icon.addEventListener('mouseover', () => {
+            moon_icon.style.color = '#BF8B86';
+        });
+
+        moon_icon.addEventListener('mouseout', () => {
+            moon_icon.style.color = '#000000';
+        });
+
+        //fim modo noturno
+
+        //começo barra de pesquisa
+
+        function filtrarProdutos() {
+            var input, filter, itemCaixa, i, nome;
+            input = document.getElementById("pesquise");
+            filter = input.value.toUpperCase();
+            itemCaixa = document.getElementsByClassName("item-caixa");
+            nenhumItemEncontrado = document.getElementById("nenhumItemEncontrado");
+
+            // Inicialmente, esconda a mensagem "Nenhum item encontrado"
+            nenhumItemEncontrado.style.display = "none";
+
+            for (i = 0; i < itemCaixa.length; i++) {
+                nome = itemCaixa[i].getElementsByClassName("nome")[0].textContent.toUpperCase();
+
+                if (nome.indexOf(filter) > -1) {
+                    itemCaixa[i].style.display = "";
+                } else {
+                    itemCaixa[i].style.display = "none";
+                }
+            }
+
+            // Verifique se nenhum item foi encontrado e exiba a mensagem correspondente
+            const itensVisiveis = Array.from(itemCaixa).some(caixa => caixa.style.display === "");
+            if (!itensVisiveis) {
+                nenhumItemEncontrado.style.display = "block";
+            }
+        }
+
+        //fim barra de pesquisa
+
+
+        // começo carrinho de compra
+
+        // Função para adicionar item ao carrinho
+        function adicionarAoCarrinho(nome, preco, imagem) {
+            // Obtenha os dados do carrinho do armazenamento local (localStorage)
+            let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+
+            // Adicione o novo item ao carrinho
+            carrinho.push({ nome: nome, preco: preco, imagem: imagem });
+
+            // Atualize o carrinho no armazenamento local
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            // Atualize o número de itens no ícone do carrinho
+            atualizarNumeroItensCarrinho();
+
+            // Mostre a mensagem de item adicionado ao carrinho
+            mostrarMensagemCarrinho();
+
+            // Você pode adicionar outras ações desejadas aqui, como redirecionar para a página do carrinho
+        }
+
+        // Função para atualizar o número de itens no ícone do carrinho
+        function atualizarNumeroItensCarrinho() {
+            const carrinho = localStorage.getItem('carrinho');
+            const numeroItens = carrinho ? JSON.parse(carrinho).length : 0;
+
+            const cartCountElement = document.getElementById('contagem');
+            cartCountElement.innerText = numeroItens;
+        }
+
+        // Função para mostrar a mensagem de item adicionado ao carrinho
+        function mostrarMensagemCarrinho() {
+            const addToCartMessage = document.getElementById('add-to-cart-message');
+            addToCartMessage.style.display = 'block';
+
+            // Esconder a mensagem após 2 segundos
+            setTimeout(() => {
+                addToCartMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        // Chame a função para garantir que o número de itens seja atualizado ao carregar a página
+        window.onload = function () {
+            atualizarNumeroItensCarrinho();
+        };
+
+
+        function inicializarPagina() {
+            // Verificar se o carrinho já está presente no armazenamento local
+            const carrinhoExistente = localStorage.getItem('carrinho');
+
+            // Se o carrinho não existir, remova-o para garantir que seja inicializado corretamente
+            if (!carrinhoExistente) {
+                localStorage.removeItem('carrinho');
+            }
+
+            // Atualizar o número de itens no ícone do carrinho
+            atualizarNumeroItensCarrinho();
+        }
+
+        // fim carrinho de compra 
+
+    </script>
+</body>
+
+</html>

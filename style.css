@@ -1,0 +1,1533 @@
+/* importa font  */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* começo do reset e container geral*/
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    background-color: var(--color-neutral-30);
+    height: 100%;
+}
+
+.pontos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* backdrop-filter:20%; */
+    /* max-width: 50px; */
+    /* max-height: 50px; */
+}
+
+.pontos-topo{
+    background-color: var(--color-neutral-140);
+}
+
+.pontos-conteudo img {
+    width: 120px;
+    margin-right: 70px;
+}
+.pontos-topo i{
+    font-weight: 1200;
+}
+
+#sair {
+    color: var(--color-neutral-30);
+}
+
+.pontos #pontos-img {
+    width: 50px;  
+    position: fixed;
+    right: 0px;
+    top: 580px;
+    padding: 3px 0px 3px 5px; 
+    background-color: #A07573;    
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.pontos-conteudo {
+    background-color: var(--color-neutral-30);
+    box-shadow: 0px 0px 30px 6px rgba(0,0,0,0.75);
+    /* padding: 20px; */
+    position: fixed;
+    right: 0px;
+    top: 400px;
+    display: none;
+    z-index: 1000;
+   padding: 5px;
+}
+
+.pontos-conteudo h6{
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.pontos-conteudo a{
+    text-decoration: none;
+    color: var(--color-neutral-20);
+}
+
+.pontos-textos {
+    margin: 20px;
+     text-align: center;
+    justify-content: center;
+}
+
+.pontos-textos button{
+    border-radius: 30px;
+    width: 200px;
+    padding: 5px;
+    color: #CDACAA;
+}
+
+.pontos-textos p{
+    text-align: center;
+    width: 370px;
+    padding: 20px;
+}
+
+#pontosFinaiss {
+    padding: 10px 175px;
+    border: 3px solid var(--color-neutral-10);
+}
+/* fim do reset e container geral */
+
+/* #finalizar-compra {
+    display: none;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*começo modo noturno*/
+
+.fa-moon,
+.fa-sun {
+    font-size: 18px !important;
+    height: 16.8px !important;
+    width: 18px !important;
+}
+
+/* #mode_icon:hover {
+    color: #BF8B86; 
+} */
+
+
+#mode_icon,
+#moon_icon {
+    color: #000000;
+    transition: color 0.1s ease;
+}
+
+#mode_icon:hover,
+#moon_icon:hover {
+    color: #BF8B86;
+}
+
+body.modo-noturno #mode_icon,
+body.modo-noturno #moon_icon {
+    color: #ffffff !important;
+}
+
+.modo-noturno {
+    background-color: var(--color-neutral-10);
+    color: #fff;
+}
+
+.modo-noturno a {
+    color: #ffffff;
+}
+
+.modo-noturno body {
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno footer {
+    background-color: var(--color-neutral-10);
+    color: #ffffff;
+}
+
+.modo-noturno #menu-geral {
+    background-color: var(--color-neutral-10);
+    border-bottom: 1.6px solid var(--color-neutral-30);
+    color: #fff;
+}
+
+.modo-noturno .item-caixa {
+    border: 1.9px solid rgb(255, 255, 255);
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno .caixas-pontos {
+    border: 1.9px solid rgb(255, 255, 255);
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno .parcela {
+    color: var(--color-neutral-30);
+}
+
+.modo-noturno .icones {
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno #snickers {
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno #itens-geral {
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno #conteudo {
+    background-color: var(--color-neutral-10);
+}
+
+.modo-noturno html {
+    background-color: var(--color-neutral-10);
+}
+
+/*fim modo noturno*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo da paleta de cor */
+
+:root {
+    --color-neutral-00: #31201E;
+    --color-neutral-0: #31201E;
+    --color-neutral-10: #171717;
+    --color-neutral-20: #000000;
+    --color-neutral-30: #ffffff;
+    --color-neutral-40: #f5f5f5;
+    --color-neutral-50: #E8E8E8;
+    --color-neutral-60: #a8a29e;
+    --color-neutral-70: #fff7f4;
+    --color-neutral-80: #fff2f0;
+    --color-neutral-90: #F1E3E1;
+    --color-neutral-100: #f0d9d6;
+    --color-neutral-110: #E0C7BD;
+    --color-neutral-120: #BF8B86;
+    --color-neutral-130: #DC9F8D;
+    --color-neutral-140: #A07573;
+    --color-neutral-150: #A66454;
+    --color-neutral-160: #888888;
+}
+
+/* fim da paleta de cor */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo da barra menu */
+
+span#burguer {
+    display: none;
+}
+
+header {
+    margin-bottom: 0px;
+    z-index: 1000;
+    /* position: fixed; */
+
+}
+
+#menu-geral {
+    position: fixed;
+    z-index: 1000;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-30);
+    width: 100vw;
+    border-bottom: 1.6px solid var(--color-neutral-10);
+}
+
+
+
+#logo-img {
+    width: 85px;
+    margin-left: -19px;
+}
+
+menu {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+menu>ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+menu>ul>li>a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: var(--color-neutral-20);
+}
+
+menu>ul>li>a:hover {
+    color: var(--color-neutral-120);
+}
+
+#espaço {
+    padding: 0px 25px;
+}
+
+#iconespaço {
+    padding: 0px 25px;
+}
+
+#iconespaço:hover {
+    color: var(--color-neutral-120);
+}
+
+
+#itensMenu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* começa barra pesquisar UIVERSE*/
+
+.container {
+    position: relative;
+    --size-button: 40px;
+    color: white;
+}
+
+.ionicon {
+    width: 20px;
+}
+
+.input {
+    padding-left: var(--size-button);
+    height: 35px;
+    border: none;
+    color: #fff;
+    outline: none;
+    width: 0px;
+    transition: all ease 0.3s;
+    background-color: #191A1E;
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+    border-radius: 200px;
+    cursor: pointer;
+}
+
+.input:focus,
+.input:not(:invalid) {
+    width: 200px;
+    cursor: text;
+    box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+}
+
+.input:focus+.icon,
+.input:not(:invalid)+.icon {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.container .icon {
+    position: absolute;
+    width: var(--size-button);
+    height: var(--size-button);
+    top: 0;
+    left: 4px;
+    padding: 7px;
+    pointer-events: none;
+}
+
+.container .icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* finaliza barra de pesquisa UIVERSE */
+/* finaliza menu */
+
+
+/* começo "sobre a pesquisa, nao achou item" */
+
+#nenhumItemEncontrado {
+    color: var(--color-neutral-30);
+    background-color: var(--color-neutral-120);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    padding: 2px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+
+/* fim "sobre a pesquisa, nao achou item" */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo carrossel de imagem  */
+.fffff {
+    display: flex;
+    /* height: 440px; */
+    padding-top: 60px;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 30px; */
+}
+
+.container-carrossel {
+    width: 1000px;
+    height: 333.33px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imagem-carrossel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.ativo {
+    opacity: 1;
+}
+
+.botao-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.botao-anterior {
+    left: 10px;
+}
+
+.botao-proximo {
+    right: 10px;
+}
+
+/* .imagem img{
+    width: 1000px;
+    height: auto;
+    border-radius: 5px;
+}
+
+#carrossel {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+}
+
+#imagens {
+    display: flex;
+}
+
+.imagem {
+    width: 100%;
+    flex: 0 0 auto;
+    margin: 50px 0px;
+}
+
+#anterior,
+#proximo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#anterior {
+    left: 10px;
+}
+
+#proximo {
+    right: 10px;
+} */
+
+
+
+/* fim carrossel de imagem  */
+
+
+
+
+
+
+
+/* começo conteudo img de frete */
+
+#conteudo {
+    padding: 0px 250px;
+}
+
+.frete,
+.natal,
+.jaqmole,
+.jogoPacman{
+    margin-top: -30px;
+    width: 100%;
+
+}
+
+#snickers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.snicker {
+    width: 480px;
+    padding: 0px 20px;
+}
+
+.caixas-pontos {
+    background-color: white;
+    border: 1.9px solid black;
+    width: 280px;
+    height: 250px;
+    /* margin: 30px 30px; */
+    border-radius: 5px;
+    padding: 15px;
+    margin: 18px 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* fim conteudo img de frete*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo de itens da loja */
+
+/* section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* section h1 {
+   
+} */
+
+/* section h2 {
+    
+} */
+
+/* section p {
+    
+} */
+
+/* section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+} */
+
+#itens-geral {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* #itens-lista {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} */
+
+.itens-lista {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-caixa {
+    background-color: white;
+    border: 1.9px solid black;
+    width: 270px;
+    height: 550px;
+    /* margin: 30px 30px; */
+    border-radius: 5px;
+    padding: 20px;
+    margin: 18px 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 50px 55px 50px 0px; */
+    /* margin= em cima, direita, em baixo, esquerda */
+}
+
+.item-caixa-pontos {
+    background-color: white;
+    border: 1.9px solid black;
+    width: 270px;
+    height: 490px;
+    /* margin: 30px 30px; */
+    border-radius: 5px;
+    padding: 20px;
+    margin: 18px 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 50px 55px 50px 0px; */
+    /* margin= em cima, direita, em baixo, esquerda */
+}
+
+.item-caixa-inicio {
+    background-color: white;
+    border: 1.9px solid black;
+    width: 270px;
+    height: 400px;
+    /* margin: 30px 30px; */
+    border-radius: 5px;
+    padding: 20px;
+    margin: 18px 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 50px 55px 50px 0px; */
+    /* margin= em cima, direita, em baixo, esquerda */
+}
+
+/* .item-caixa img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* .trocaItem {
+    width: 190px;
+} */
+
+.trocaItem:hover {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#fig-item {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+#fig-item img {
+    margin: 0px;
+    width: 240px;
+}
+
+.item-conteudo {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+
+}
+
+.nome {
+    font: 700 15px 'Poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.preco {
+    font: 700 18px 'Poppins', sans-serif;
+    text-align: center;
+    color: rgb(110, 139, 117);
+    margin-top: 8px;
+    transition: 0.4s;
+}
+
+.preco:hover {
+    color: rgb(142, 181, 152);
+}
+
+.parcela {
+    font: 700 18px 'Poppins', sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    color: var(--color-neutral-10);
+}
+
+.descricao {
+    font: 400 12px 'Poppins', sans-serif;
+    text-align: justify;
+    margin: 3px;
+    color: var(--color-neutral-160);
+}
+
+#cesta {
+    background-color: var(--color-neutral-120);
+    transition: 0.5s;
+    border-radius: 2px;
+    margin-top: 6px;
+    padding: 1px;
+}
+
+#cesta:hover {
+    background-color: var(--color-neutral-110);
+}
+
+/* fim de itens da loja */
+
+
+/* começo de pagina de pontos */
+
+.icones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones img {
+    width: 220px;
+    padding: 20px;
+}
+
+/* fim de pagina de pontos */
+
+
+
+
+
+/* começo carrinho de compras  */
+
+#contagem {
+    /* #cart-count { */
+    position: absolute;
+    top: -10px;
+    right: 7px;
+    background-color: var(--color-neutral-120);
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5.5px;
+    font-size: 10px;
+}
+
+#carrinhoGeral {
+    position: relative;
+    display: inline-block;
+}
+
+/* Adicione o estilo abaixo se desejar um efeito de animação quando o número é atualizado */
+#contagem {
+    transition: transform 0.2s ease-in-out;
+}
+
+#carrinhoGeral:hover #contagem {
+    transform: scale(1.1);
+}
+
+/* fim carrinho de compras */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo paginas de login */
+
+#container_login {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-neutral-100);
+    opacity: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login_form {
+    background-color: var(--color-neutral-30);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 8px;
+    gap: 30px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0, 336);
+    height: fit-content;
+    animation: dark-to-light 0.03s ease-in-out;
+}
+
+#form_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#form_header h1 {
+    position: relative;
+}
+
+#form_header h1::before {
+    position: absolute;
+    content: '';
+    width: 60px;
+    background-color: var(--color-neutral-150);
+    height: 3px;
+    bottom: 10px;
+}
+
+
+
+#mode_icon {
+    cursor: pointer;
+    font-size: 28px;
+}
+
+#social_mediaa {
+    display: flex;
+    justify-content: space-around;
+}
+
+#social_mediaa img {
+    width: 50px;
+}
+
+#social_mediaa img:hover {
+    transform: scale(1.2);
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: var(--color-neutral-60);
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-neutral-20);
+}
+
+.input-field i {
+    font-size: 18px;
+    color: var(--color-neutral-20);
+}
+
+.input-field input {
+    border: none;
+    background-color: transparent;
+    width: 260px;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+.input-field input:focus {
+    outline: none;
+}
+
+#forgot_password a {
+    margin-top: 3px;
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--color-neutral-60);
+}
+
+#forgot_password a:hover {
+    color: var(--color-neutral-140);
+}
+
+#login_button {
+    border: none;
+    background-color: var(--color-neutral-20);
+    color: var(--color-neutral-30);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#login_button:hover {
+    transform: scale(1.05);
+}
+
+.dark#login_form {
+    color: var(--color-neutral-30);
+    background-color: var(--color-neutral-10);
+    animation: light-to-dark 0.03s ease-in-out;
+}
+
+.dark#login_form .input-field input,
+.dark#login_form .input-field i {
+    color: var(--color-neutral-30);
+}
+
+@keyframes dark-to-light {
+    0% {
+        background-color: var(--color-neutral-40);
+    }
+
+    100% {
+        background-color: var(--color-neutral-10);
+    }
+
+}
+
+@keyframes dark-to-dark {
+    0% {
+        background-color: var(--color-neutral-10);
+    }
+
+    100% {
+        background-color: var(--color-neutral-40);
+    }
+
+}
+
+.dark .input-field {
+    border-bottom: 1px solid #a8a29e;
+}
+
+#login_button.dark {
+    background-color: white;
+    color: black;
+}
+
+/* fim paginas de login */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo veja-item */
+
+#veja-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+}
+
+#opcoes-item {
+    text-align: center;
+}
+
+#opcoes-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#opcoes-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* button {
+    background-color: #009688;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #00796b;
+} */
+
+/* fim veja-item */
+
+
+
+
+
+
+/* começo contagem natalina */
+
+
+
+#regressiva {
+    color: rgb(186, 14, 14);
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 7px rgba(119, 119, 119, 0.51);
+}
+
+.tudo-conteudo {
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    /* width: fit-content; */
+   margin: 40px 0px;
+    text-align: center;
+    background-color: rgba(228, 228, 228, 0);
+}
+
+#natal {
+    font-weight: 780;
+    
+    color: rgb(186, 14, 14);
+    font-size: 39px;
+}
+
+h1 {
+    font-size: 39px;
+}
+
+#progress-bar {
+    margin-top: 20px;
+    width: 100%;
+    height: 25px;
+    background-color: #aaaaaa;
+    position: relative;
+    border-radius: 50px;
+}
+
+#progress {
+    height: 100%;
+    /* width: 200px; */
+    background-color: #4CAF50;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+/* fim contagem natalina */
+
+
+
+
+
+
+
+
+
+
+
+/* começo pagina de pagamento */
+
+
+
+#finalizarPedido {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#finalizarPedido:hover {
+    background-color: #45a049;
+}
+
+#mensagemSucesso,
+#mensagemErro {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+#mensagemSucesso {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#mensagemErro {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* fim pagina de pagamento */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* começo dos rodapé */
+
+#footer-cor {
+    color: var(--color-neutral-40);
+}
+
+h3 {
+    font-size: 16px;
+}
+
+#footer-corpo {
+    background-color: var(--color-neutral-20);
+    display: grid;
+    justify-content: center;
+    grid-column: 20% 20% 20% 20%;
+    grid-template-columns: 20% 20% 20% 20%;
+    padding: 3rem 8rem;
+    /* padding: 3rem 3.5rem 3rem 7rem; */
+}
+
+#footer-corpo img {
+    margin-left: -15px;
+    width: 190px;
+}
+
+#footer-midias {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+#footer-midias .footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-neutral-40);
+    transition: all 0.4s;
+}
+
+#footer-midias .footer-link i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+#footer-midias .footer-link :hover {
+    opacity: 0.8;
+}
+
+#footer-contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1, 5rem;
+}
+
+#footer-contatos p {
+    color: var(--color-neutral-30);
+}
+
+#input_group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-0);
+    border-radius: 4px;
+}
+
+#input_group input {
+    all: unset;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+#input_group button {
+    background-color: #A66454;
+    border: none;
+    color: var(--color-neutral-40);
+    padding: 0px 1.25rem;
+    font-size: 1.25rem;
+    height: 100%;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#input_group button:hover {
+    opacity: 1.0;
+}
+
+
+
+@media screen and (max-width: 985px) {
+    #footer-corpo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #footer-corpo {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 3rem 2.5rem;
+    }
+}
+
+.footer-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style: none;
+    font-size: 13px;
+
+}
+
+.footer-lista.footer-link {
+    color: var(--color-neutral-30);
+}
+
+.footer-lista.footer-link :hover {
+    color: #A66454;
+}
+
+
+.footer-link {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-neutral-30);
+    text-decoration: none;
+    text-align: left;
+}
+
+.contato {
+    font-size: 15px;
+}
+
+.contato-nome {
+    font: 300 18px 'Mont', sans-serif;
+    color: #fff;
+}
+
+
+#coluna-tres {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
+#coluna-tres .footer-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: var(--color-neutral-40);
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#coluna-tres .footer-link i {
+    font-size: 1.25rem;
+    /* margin: 5px; */
+}
+
+#coluna3 .footer-link :hover {
+    opacity: 0.9;
+}
+
+.contato {
+    display: flex;
+    align-items: center;
+}
+
+#footer-final {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-neutral-10);
+    font-size: 0.9rem;
+    padding: 1.0rem;
+    font-weight: 100;
+}
+
+/* fim dos rodapé */

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contagem Regressiva para o Natal</title>
+    <style>
+        
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .countdown-container {
+        display: flex;
+    }
+    
+    #days,
+    #hours,
+    #minutes {
+        margin: 0 10px;
+        font-size: 2em;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="countdown-container">
+        <div id="days"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Data alvo: Natal (25 de dezembro)
+            const targetDate = new Date("December 25, 2023 00:00:00").getTime();
+
+            function updateCountdown() {
+                const currentDate = new Date().getTime();
+                const timeDifference = targetDate - currentDate;
+
+                // Calcular dias, horas, minutos e segundos
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+                // Atualizar elementos HTML
+                document.getElementById("days").innerText = days + " dias";
+                document.getElementById("hours").innerText = hours + " horas";
+                document.getElementById("minutes").innerText = minutes + " minutos";
+            }
+
+            // Atualizar a contagem regressiva a cada segundo
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coletivo emaus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediagreen.css">
+    <link class="icon" rel="icon" href="img/icone.png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #carrinho {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            /* min-height: 80vh; */
+        }
+
+        #carrinho-itens {
+            min-height: 80vh;
+        }
+
+        .item-caixa {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .troca-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .item-conteudo {
+            text-align: center;
+        }
+
+        .nome {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .preco {
+            font-size: 16px;
+            color: green;
+        }
+
+        #remove {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #remove:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+
+        #cart-count {
+            position: absolute;
+            top: 2px;
+            right: -4.5px;
+            background-color: var(--color-neutral-120);
+            color: white;
+            border-radius: 50%;
+            padding: 1px 5.5px;
+            font-size: 12px;
+        }
+
+        #cart-icon-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Adicione o estilo abaixo se desejar um efeito de animação quando o número é atualizado */
+        #cart-count {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #cart-icon-container:hover #cart-count {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body onresize="mudouTamanho()" onload="inicializarPagina()">
+    <header>
+        <div id="menu-geral">
+            <a id="" href="index.html"><img id="logo-img" src="img/logo-img.png" alt="logo-emaus"></a>
+            <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+            <menu id="itensMenu">
+                <ul>
+                    <li><a id="espaço" href="camisetasemaus.html">camisetas</a></li>
+                    <li><a id="espaço" href="moletonsemaus.html">moletons</a></li>
+                    <li><a id="espaço" href="unissexemaus.html">unissex</a></li>
+                    <li><a id="espaço" href="acessoriosemaus.html">acessórios</a></li>
+                    <li><a id="espaço" href="pontosemaus.html">pontos</a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="tel:(11) 3425-7299"><i
+                                class="fa-solid fa-phone"></i></a></li>
+                    <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
+                    </li>
+                    <li id="carrinhoGeral">
+                        <a id="iconespaço" class="imgmenu" href="#">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="contagem" class="contagem">0</div>
+                        </a>
+                    </li>
+                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
+                    <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
+                    <li>
+                        <div class="container">
+                            <input type="text" name="text" id="pesquise" class="input" required=""
+                                placeholder="Pesquise aqui..." oninput="filtrarProdutos()">
+                            <div class="icon">
+                                <i class="fa-solid fa-magnifying-glass">
+                                    <title>Search</title>
+                                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+                                        fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32">
+                                    </path>
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
+                                </i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <section id="carrinho" class="selection">
+        <div class="itens-lista" id="carrinho-itens"></div>
+        <p id="carrinho-vazio-msg">Seu carrinho está vazio! Faça o login e inicie as compras.</p>
+        <a id="finalizar-compra" href="pagamentoemaus.html">Fazer Pedido</a>
+    </section>
+
+
+
+
+
+
+
+    <footer>
+        <div id="footer-cor">
+            <div id="footer-corpo">
+                <div id="footer-redes">
+                    <h1>emaus</h1>
+                    <p>acesse nossas redes</p>
+
+                    <div id="footer-midias">
+
+                        <a href="https://api.whatsapp.com/send?phone=5511930234169" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-whatsapp"></i></a>
+
+                        <a href="https://www.instagram.com/coletivo_emaus/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-instagram"></i></a>
+
+                        <a href="https://www.facebook.com/coletivoemaus/?locale=pt_BR" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-facebook"></i></a>
+
+                        <a href="https://twitter.com/coletivoemaus" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-twitter"></i></a>
+
+                        <a href="https://coletivoemaus.tumblr.com/" class="footer-link" id="icone">
+                            <i class="fa-brands fa-square-tumblr"></i></a>
+
+                    </div>
+                </div>
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CATEGORIAS</h3>
+                    </li>
+                    <li>
+                        <a href="acessoriosemaus.html" class="footer-link">Acessórios</a>
+                    </li>
+                    <li>
+                        <a href="camisetasemaus.html" class="footer-link">Camisetas</a>
+                    </li>
+                    <li>
+                        <a href="moletonsemaus.html" class="footer-link">Moletons</a>
+                    </li>
+                    <li>
+                        <a href="pontosemaus.html" class="footer-link">Pontos</a>
+                    </li>
+                    <li>
+                        <a href="unisexemaus.html" class="footer-link">Unissex</a>
+                    </li>
+                </ul>
+
+
+                <ul class="footer-lista">
+                    <li>
+                        <h3>CONTEÚDO</h3>
+                    </li>
+                    <li>
+                        <a href="lojaemaus.html" class="footer-link">Loja Física</a>
+                    </li>
+                    <li>
+                        <a href="faleconoscoemaus.html" class="footer-link">Fale conosco</a>
+                    </li>
+                    <li>
+                        <a href="sobrenosemaus.html" class="footer-link">Sobre nós</a>
+                    </li>
+                    <li>
+                        <a href="politicasemaus.html" class="footer-link">Políticas de privacidade</a>
+                    </li>
+                    <li>
+                        <a href="trocaemaus.html" class="footer-link">Troca e devoluções</a>
+                    </li>
+                </ul>
+
+                <div id="footer-contatos">
+                    <h3>CONTATOS</h3>
+
+                    <div id="coluna-tres">
+                        <div class="contato">
+                            <a href="tel:(11) 3425-7299" class="footer-link" id="telefone icone">
+                                <i class="fa-solid fa-phone-volume"></i></a>
+                            <h4 class="rede-nome">11.99734.0303</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="contato@coletivoemaus.com" class="footer-link" id="email icone">
+                                <i class="fa-solid fa-envelope"></i></a>
+                            <h4 class="rede-nome">@coletivoemaus.com</h4>
+                        </div>
+
+                        <div class="contato">
+                            <a href="https://goo.gl/maps/q5jhUDYv6CsGCAB37?coh=178572&entry=tt" class="footer-link"
+                                id="mapa icone">
+                                <i class="fa-solid fa-location-dot"></i></a>
+                            <h4 class="rede-nome">Av. Brasil, 326 - Vila Correa</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="footer-final">
+                <p>&#169
+                    2023 all rights reserve</p>
+            </div>
+
+    </footer>
+
+
+    <!-- // ==igual
+    // =recebe -->
+    <script>
+
+        // começo modo noturno
+
+        const mode = document.getElementById('mode_icon');
+        const body = document.body;
+        const menu = document.getElementById('menu-geral');
+        const logoImg = document.getElementById('logo-img');
+        const mode_icon = document.getElementById('mode_icon');
+        const moon_icon = document.getElementById('moon_icon');
+
+        mode.addEventListener('click', () => {
+            if (mode.classList.contains('fa-moon')) {
+                mode.classList.remove('fa-moon');
+                mode.classList.add('fa-sun');
+                body.classList.add('modo-noturno');
+                logoImg.src = 'img/logo-white.png';
+                menu.classList.add('modo-noturno');
+            } else {
+                mode.classList.add('fa-moon');
+                mode.classList.remove('fa-sun');
+                body.classList.remove('modo-noturno');
+                logoImg.src = 'img/logo-img.png';
+                menu.classList.remove('modo-noturno');
+            }
+        });
+
+        //troca cor sol e lua 
+
+        mode_icon.addEventListener('mouseover', () => {
+            mode_icon.style.color = '#BF8B86';
+        });
+
+        mode_icon.addEventListener('mouseout', () => {
+            if (!mode.classList.contains('fa-sun')) {
+                mode_icon.style.color = '#000000';
+            }
+        });
+
+        moon_icon.addEventListener('mouseover', () => {
+            moon_icon.style.color = '#BF8B86';
+        });
+
+        moon_icon.addEventListener('mouseout', () => {
+            moon_icon.style.color = '#000000';
+        });
+
+        //fim modo noturno
+
+        //começo tamanho do menu
+
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (itens.style.display == 'block') {
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+
+        //fim tamanho do menu
+
+        //começo carrossel de imagem
+
+        let imagemAtual = 1;
+        const totalImagens = 3;
+
+        function mudarImagem(direcao) {
+            imagemAtual += direcao;
+
+            if (imagemAtual > totalImagens) {
+                imagemAtual = 1;
+            } else if (imagemAtual < 1) {
+                imagemAtual = totalImagens;
+            }
+
+            atualizarCarrossel();
+        }
+
+        function atualizarCarrossel() {
+            const carrossel = document.getElementById('imagens');
+            const larguraImagem = document.querySelector('.imagem').offsetWidth;
+
+            carrossel.style.transform = `translateX(${-larguraImagem * (imagemAtual - 1)}px)`;
+        }
+
+        setInterval(() => mudarImagem(1), 6000);
+
+        //fim carrossel de imagem
+
+        //começo barra de pesquisa
+
+
+
+        //fim barra de pesquisa
+
+
+        // começo carrinho de compra
+
+        // Função para inicializar a página
+        function inicializarPagina() {
+            exibirItensCarrinho();
+            exibirBotaoFinalizarCompra();
+        }
+
+        // Função para exibir os itens do carrinho na página
+        function exibirItensCarrinho() {
+            const carrinho = localStorage.getItem('carrinho');
+            const carrinhoItensContainer = document.getElementById('carrinho-itens');
+            const carrinhoVazioMsg = document.getElementById('carrinho-vazio-msg');
+
+            if (carrinho) {
+                const carrinhoItens = JSON.parse(carrinho);
+
+                carrinhoItensContainer.innerHTML = '';
+
+                carrinhoItens.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('item-caixa');
+                    itemElement.innerHTML = `
+                        <figure class="troca-item">
+                            <img src="${item.imagem}" alt="${item.nome}">
+                        </figure>
+                        <div class="item-conteudo">
+                            <h4 class="nome">${item.nome}</h4>
+                            <p class="preco">R$${item.preco.toFixed(2)}</p>
+                            <label for="genero">Gênero:</label>
+                            <select id="genero" onchange="atualizarGenero('${item.nome}', this.value)">
+                                <option value="masculino" ${item.genero === 'masculino' ? 'selected' : ''}>Masculino</option>
+                                <option value="feminino" ${item.genero === 'feminino' ? 'selected' : ''}>Feminino</option>
+                            </select>
+                            <br>
+                            <label for="tamanho">Tamanho:</label>
+                            <select id="tamanho" onchange="atualizarTamanho('${item.nome}', this.value)">
+                                <option value="PP" ${item.tamanho === 'PP' ? 'selected' : ''}>PP</option>
+                                <option value="P" ${item.tamanho === 'P' ? 'selected' : ''}>P</option>
+                                <option value="M" ${item.tamanho === 'M' ? 'selected' : ''}>M</option>
+                                <option value="G" ${item.tamanho === 'G' ? 'selected' : ''}>G</option>
+                                <option value="GG" ${item.tamanho === 'GG' ? 'selected' : ''}>GG</option>
+                                <option value="EG" ${item.tamanho === 'EG' ? 'selected' : ''}>EG</option>
+                                <option value="EGG" ${item.tamanho === 'EGG' ? 'selected' : ''}>EGG</option>
+                            </select>
+                            <br>
+                            <button onclick="removerDoCarrinho('${item.nome}')">Remover do Carrinho</button>
+                        </div>
+                    `;
+                    carrinhoItensContainer.appendChild(itemElement);
+                });
+
+                carrinhoVazioMsg.style.display = 'none';
+            } else {
+                carrinhoItensContainer.innerHTML = '';
+                carrinhoVazioMsg.style.display = 'block';
+            }
+        }
+        // Função para remover um item específico do carrinho
+        function removerDoCarrinho(nomeItem) {
+            let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+            const itemIndex = carrinho.findIndex(item => item.nome === nomeItem);
+
+            if (itemIndex !== -1) {
+                carrinho.splice(itemIndex, 1);
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+                exibirItensCarrinho();
+                exibirBotaoFinalizarCompra();
+            }
+        }
+
+        // Função para atualizar o gênero do item no carrinho
+        function atualizarGenero(nomeItem, genero) {
+            let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+            const itemIndex = carrinho.findIndex(item => item.nome === nomeItem);
+
+            if (itemIndex !== -1) {
+                carrinho[itemIndex].genero = genero;
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                exibirBotaoFinalizarCompra();
+            }
+        }
+
+        // Função para atualizar o tamanho do item no carrinho
+        function atualizarTamanho(nomeItem, tamanho) {
+            let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+            const itemIndex = carrinho.findIndex(item => item.nome === nomeItem);
+
+            if (itemIndex !== -1) {
+                carrinho[itemIndex].tamanho = tamanho;
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                exibirBotaoFinalizarCompra();
+            }
+        }
+
+
+
+
+        // Função para atualizar o número de itens no ícone do carrinho
+        function atualizarNumeroItensCarrinho() {
+            const carrinho = localStorage.getItem('carrinho');
+            const contagemElement = document.getElementById('contagem');
+
+            if (carrinho) {
+                const carrinhoItens = JSON.parse(carrinho);
+                const numeroItens = carrinhoItens.length;
+                contagemElement.textContent = numeroItens;
+
+                // Se houver algum item no carrinho, exibe o botão "Fazer Pedido"
+                const botaoFinalizarCompra = document.getElementById('finalizar-compra');
+                botaoFinalizarCompra.style.display = numeroItens >= 1 ? 'block' : 'none';
+
+                return numeroItens;
+            } else {
+                contagemElement.textContent = '0';
+
+                // Se não houver itens no carrinho, oculta o botão "Fazer Pedido"
+                const botaoFinalizarCompra = document.getElementById('finalizar-compra');
+                botaoFinalizarCompra.style.display = 'none';
+
+                return 0;
+            }
+        }
+
+        // Chamada inicial
+        inicializarPagina();
+
+        // Função para exibir o botão "Finalizar Compra" com base na contagem de itens
+        function exibirBotaoFinalizarCompra() {
+            const numeroItens = atualizarNumeroItensCarrinho();
+            const pedido = document.getElementById('carrinho-itens');
+            const botaoFinalizarCompra = document.getElementById('finalizar-compra');
+            const carrinhoVazioMsg = document.getElementById('carrinho-vazio-msg');
+
+            if (pedido.childNodes.length === 0) {
+                botaoFinalizarCompra.style.display = "none"
+                carrinhoVazioMsg.style.display = "block"
+            } else {
+                botaoFinalizarCompra.style.display = "block"
+                carrinhoVazioMsg.style.display = "none"
+            }
+
+            botaoFinalizarCompra.addEventListener('click', function(event){
+                event.preventDefault();
+
+                const user = JSON.parse(localStorage.getItem('userData'));
+
+                if (user && user.username) {
+                    window.location.href = 'pagamentoemaus.html'
+                } else {
+                    alert('Você precisa estar logado para acessar ao pagamento!');
+                    window.location.href = 'loginemaus.html'
+                }
+            })
+        }
+
+        // fim carrinho de compra
+    </script>
+</body>
+
+</html>
